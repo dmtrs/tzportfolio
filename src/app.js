@@ -1,5 +1,6 @@
 import { html, define, property } from 'hybrids';
-import './footer.js'
+import './account.js';
+import './footer.js';
 
 define({
   tag: "tzp-app",
@@ -9,6 +10,7 @@ define({
     </header>
     <section>
       <article>
+        <tzp-account></tzp-account>
       </article>
     </section>
     <hr/>
