@@ -1,5 +1,6 @@
 # tzportfolio
 
+
 ## Development
 
 The `public/index.html` file contains a `<script src='bundle.js'>` tag, which means we need to create `public/bundle.js`.
@@ -13,4 +14,4 @@ The `rollup.config.js` file tells Rollup how to create this bundle, starting wit
 
 `npm run dev` will run `npm start` and `npm run watch` in parallel.
 
-[MIT License](LICENSE).
+[MIT License](LICENSE) / Data provided by [TzKT API v1.6.1](https://api.tzkt.io/)
