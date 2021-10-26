@@ -1,5 +1,5 @@
 import { define, store, html } from 'hybrids';
-import { Account } from './models/accounts.js';
+import { Account } from './schema/accounts.js';
 import './atoms/mutez.js'
 
 define({
