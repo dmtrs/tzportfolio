@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+<head lang='en'>
+	<meta charset='utf-8'>
+	<meta name='viewport' content='width=device-width'>
+	<title>spr-colors</title>
+	<style>
+                :root {
+                  --spr-sm-em: 1.4em;
+                  --spr-md-em: 4em;
+                  --spr-lg-em: 6em;
+                  --spr-muted-hex: #888;
+                }
+		body {
+			font-family: 'Helvetica Neue', Arial, sans-serif;
+			color: #333;
+			font-weight: 400;
+                        color-adjust: exact;
+                        -webkit-print-color-adjust: exact;
+		}
+	</style>
+</head>
+<body>
+  <main id="app">
+  </main>
+  <script src='bundle.js'></script>
+  <script>
+    var app = document.createElement('tzp-app');
+    document.querySelector('#app').appendChild(app);
+  </script>
+</body>
+</html>
