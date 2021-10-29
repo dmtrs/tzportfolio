@@ -1,14 +1,29 @@
-import { html, define } from 'hybrids';
+import { html, define, property } from 'hybrids';
 import * as Plot from "@observablehq/plot";
+
+import { transform_date, transform_mutez } from './utils.js';
 
 define({
   tag: "tzp-graph",
-  render: ({ }) => {
-    const aapl = [
-      {date: '2007-04-23', close: 93.24},
-      {date: '2007-04-24', close: 95.35}
-    ]
-    const plot = Plot.line(aapl, {x: "date", y: "close"}).plot();
-    return html`${plot}`;
+  data: property(),
+  render: ({ data }) => {
+    console.log(data);
+    return html`
+      <div>
+      ${Plot.plot({
+        // width: 1424,
+        x: {
+          transform: transform_date,
+        },
+        y: {
+          transform: f => Number(transform_mutez(f)/1000000),
+          nice: true,
+        },
+        marks: [
+          Plot.line(JSON.parse(data), {x: "timestamp", y: "balance"}),
+        ]
+      })}
+      </div>
+    `;
   }
 });

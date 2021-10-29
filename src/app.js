@@ -1,6 +1,5 @@
 import { html, define, property } from 'hybrids';
 import './account.js';
-import './graph.js';
 import './footer.js';
 
 define({
@@ -12,7 +11,6 @@ define({
     <section>
       <article>
         <tzp-account></tzp-account>
-        <tzp-graph></tzp-graph>
       </article>
     </section>
     <hr/>
