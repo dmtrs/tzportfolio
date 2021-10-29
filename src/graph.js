@@ -6,8 +6,9 @@ import { transform_date, transform_mutez } from './utils.js';
 define({
   tag: "tzp-graph",
   data: property(),
-  render: ({ data }) => {
-    console.log(data);
+  y: property('balance'),
+  x: property('timestamp'),
+  render: ({ data, y, x }) => {
     return html`
       <div>
       ${Plot.plot({
@@ -16,11 +17,11 @@ define({
           transform: transform_date,
         },
         y: {
-          transform: f => Number(transform_mutez(f)/1000000),
+          //transform: f => Number(transform_mutez(f)/1000000),
           nice: true,
         },
         marks: [
-          Plot.line(JSON.parse(data), {x: "timestamp", y: "balance"}),
+          Plot.line(JSON.parse(data), {x, y }),
         ]
       })}
       </div>

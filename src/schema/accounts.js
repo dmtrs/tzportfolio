@@ -12,27 +12,16 @@ const _local_cache = (key, fn) => address => new Promise((res, rej) => {
   return res(JSON.parse(account))
 });
 
-const _get = address => new Promise((res, rej) => {
-  return fetch(`https://api.tzkt.io/v1/accounts/${address}`)
+const _get = address => fetch(`https://api.tzkt.io/v1/accounts/${address}`)
     .then(res=>res.json())
-    .then(({ address, balance, alias }) => {
-      res({
+    .then(({ address, balance, alias }) => ({
         address,
         balance,
         alias,
-      });
-    })
-    .catch(rej);
-});
+    }));
 
-const _get_balance_history = address => new Promise((res, rej) => {
-  return fetch(`https://api.tzkt.io/v1/accounts/${address}/balance_history`)
-    .then(res=>res.json())
-    .then(data => {
-      res({ data: JSON.stringify(data) })
-    })
-    .catch(rej);
-});
+const _get_balance_history = address => fetch(`https://api.tzkt.io/v1/accounts/${address}/balance_history`)
+  .then(res=>res.json());
 
 export const Account = {
   id: true,
@@ -46,8 +35,12 @@ export const Account = {
 
 export const AccountBalanceHistory = {
   id: true,
+  address: '',
   data: '',
   [store.connect]: {
-    get: _get_balance_history,
+    get: address => _get_balance_history(address).then( data => ({
+      address,
+      data: JSON.stringify(data),
+    }))
   },
 };
