@@ -1,5 +1,6 @@
 import { html, define, property } from 'hybrids';
 import './account.js';
+import './fx.js';
 import './footer.js';
 
 define({
@@ -12,6 +13,9 @@ define({
       <article>
         <tzp-account></tzp-account>
       </article>
+      <aside>
+        <tzp-fx></tzp-fx>
+      </aside>
     </section>
     <hr/>
     <tzp-footer></tzp-footer>

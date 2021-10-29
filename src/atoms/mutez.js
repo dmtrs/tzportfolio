@@ -13,5 +13,5 @@ define({
 define({
   tag: "tzp-mutez",
   v: property(Number(0)), // int64
-  render: ({v}) => _render({ v: Number(v/1000000)}),
+  render: ({v}) => _render({ v: Number(v/1000000) }), 
 });
