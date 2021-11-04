@@ -29,5 +29,6 @@ define({
       ${store.ready(host.cycle) && html`
         end ${moment(host.cycle.endTime).fromNow()} ${host.cycle.lastLevel}`
       }
-    </div>`
+    </div>
+  `
 });
