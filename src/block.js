@@ -1,9 +1,11 @@
 import { define, store, html } from 'hybrids';
+import { Block } from './schema/block.js';
 
 define({
   tag: "tzp-block",
-  render: ({}) => html`
-    <span>█ ${html.resolve(fetch('https://api.tzkt.io/v1/blocks/count').then(r=>r.json()))}</span>
+  block: store(Block),
+  render: ({ block }) => html`
+    <span>█&nbsp;${ store.ready(block) && block.level }</span>
   `,
 });
 

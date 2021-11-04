@@ -9,18 +9,18 @@ define({
   tag: "tzp-app",
   render: ({}) => html`
     <header>
-      <h1>tzportfolio
-      <tzp-cycles></tzp-cycles>
-      <tzp-block></tzp-block>
+      <h1>tzportfolio</h1>
       </h1>
     </header>
     <section>
+      <aside>
+        <tzp-cycles></tzp-cycles>
+        <tzp-block></tzp-block>
+      </aside>
       <article>
         <tzp-account></tzp-account>
-      </article>
-      <aside>
         <tzp-fx></tzp-fx>
-      </aside>
+      </article>
     </section>
     <hr/>
     <tzp-footer></tzp-footer>
