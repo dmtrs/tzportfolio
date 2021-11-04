@@ -1,11 +1,6 @@
 import { store } from 'hybrids';
 
-const _get_quotes = () => new Promise((res, rej) => {
-  return fetch(`https://api.tzkt.io/v1/quotes?limit=100`)
-    .then(res=>res.json())
-    .then(res)
-    .catch(rej);
-});
+const _get_quotes = () => fetch(`https://api.tzkt.io/v1/quotes`).then(res=>res.json());
 
 const _get_quotes_for = base => {
   if (base != 'eur') {
