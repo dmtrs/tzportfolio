@@ -1,0 +1,7 @@
+.main-container {
+  padding-top: 3rem;
+}
+
+:host .bx--mt-5 {
+  margin-top: 1rem;
+}

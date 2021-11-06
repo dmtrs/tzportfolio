@@ -8,20 +8,24 @@ define({
   data: property(),
   y: property('balance'),
   x: property('timestamp'),
-  render: ({ data, y, x }) => {
+  render: (host) => {
+    const width = host.offsetParent.clientWidth;
+    const height = host.offsetParent.clientHeight;
     return html`
       <div>
       ${Plot.plot({
-        // width: 1424,
+        width,
+        height,
         x: {
           transform: transform_date,
+          nice: true,
         },
         y: {
           //transform: f => Number(transform_mutez(f)/1000000),
           nice: true,
         },
         marks: [
-          Plot.line(JSON.parse(data), {x, y }),
+          Plot.line(JSON.parse(host.data), {x:host.x, y:host.y }),
         ]
       })}
       </div>

@@ -1,6 +1,10 @@
 import resolve from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
 import json from 'rollup-plugin-json';
+import scss from 'rollup-plugin-scss';
+import css from 'rollup-plugin-import-css';
+import postcss from 'postcss';
+import autoprefixer from 'autoprefixer';
 import { terser } from 'rollup-plugin-terser';
 
 // `npm run build` -> `production` is true
@@ -14,7 +18,11 @@ export default {
 		format: 'iife', // immediately-invoked function expression — suitable for <script> tags
 		sourcemap: true
 	},
-	plugins: [
+	plugins: [/**
+                scss({
+                  processor: () => postcss([autoprefixer()]),
+                }),**/
+                css(),
                 json({
                   include: 'src/**',
                 }),
