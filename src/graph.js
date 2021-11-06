@@ -23,9 +23,10 @@ define({
         y: {
           //transform: f => Number(transform_mutez(f)/1000000),
           nice: true,
+          grid: true,
         },
         marks: [
-          Plot.line(JSON.parse(host.data), {x:host.x, y:host.y }),
+          Plot.line(JSON.parse(host.data).map(i=>[i[host.x], i[host.y]])),
         ]
       })}
       </div>

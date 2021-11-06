@@ -39,11 +39,6 @@ define({
           </div>
         </div>
         <div class="bx--col-lg-4 bx--grid bx--grid--narrow">
-          <div class="bx--row">
-            <h1>FX</h1>
-          </div>
-          <div class="bx--row">
-          </div>
           <div class="bx--row bx--aspect-ratio bx--aspect-ratio--16x9">
             <tzp-fx class="bx--aspect-ratio--object bx--col"></tzp-fx>
           </div>
