@@ -8,23 +8,27 @@ define({
   data: property(),
   y: property('balance'),
   x: property('timestamp'),
-  render: ({ data, y, x }) => {
-    return html`
-      <div>
-      ${Plot.plot({
-        // width: 1424,
+  render: (host) => {
+    const width = host.offsetParent.clientWidth;
+    const height = host.offsetParent.clientHeight;
+    const graph = Plot.plot({
+        width,
+        height,
         x: {
           transform: transform_date,
+          nice: true,
         },
         y: {
           //transform: f => Number(transform_mutez(f)/1000000),
           nice: true,
+          grid: true,
         },
         marks: [
-          Plot.line(JSON.parse(data), {x, y }),
+          Plot.line(JSON.parse(host.data).map(i=>[i[host.x], i[host.y]])),
         ]
-      })}
-      </div>
-    `;
+    });
+    graph.setAttribute('width', '100%');
+    graph.setAttribute('height', '100%');
+    return html`${graph}`;
   }
 });

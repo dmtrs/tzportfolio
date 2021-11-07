@@ -1,35 +1,56 @@
 import { html, define, property } from 'hybrids';
 
+
+import globals from 'carbon-components/css/carbon-components.css';
+import 'carbon-web-components/es/components/ui-shell/side-nav.js';
+
+import styles from './_app.css';
+
 import './account.js';
 import './block.js';
 import './cycles.js';
 import './fx.js';
 
+
 import './header.js';
 import './footer.js';
 
 define({
+  tag: "tzp-side-nav",
+  render: ({}) => html`
+    <aside>
+      <tzp-cycles></tzp-cycles>
+      <tzp-block></tzp-block>
+    </aside>
+  `
+})
+
+define({
+  tag: "tzp-layout",
+  render: ({})=> html`
+    <div class="main-container bx--grid">
+      <div class="bx--row">
+        <div class="bx--col-lg-10">
+          <div class="bx-row bx--mt-5 bx--aspect-ratio bx--aspect-ratio--16x9">
+            <tzp-account class="bx--col"></tzp-account>
+          </div>
+        </div>
+        <div class="bx--col-lg-2 bx--grid bx--grid--narrow">
+          <div class="bx--row bx--aspect-ratio bx--aspect-ratio--16x9">
+            <tzp-fx class="bx--aspect-ratio--object bx--col"></tzp-fx>
+          </div>
+        </div>
+      </div>
+    </div>
+  `.style(globals, styles),
+});
+
+
+define({
   tag: "tzp-app",
   render: ({}) => html`
-    <div class="main-container">
-      <tzp-header></tzp-header>
-      <section>
-        <aside>
-          <tzp-cycles></tzp-cycles>
-          <tzp-block></tzp-block>
-        </aside>
-        <article>
-          <tzp-account></tzp-account>
-          <tzp-fx></tzp-fx>
-        </article>
-      </section>
-      <hr/>
-      <tzp-footer></tzp-footer>
-    </div>
-    <style>
-    :host div.main-container section {
-      padding-top: 3rem; /** tzp-header height **/
-    }
-    </style>
-  `,
+    <tzp-header></tzp-header>
+    <tzp-layout></tzp-layout>
+    <tzp-footer></tzp-footer>
+  `
 });

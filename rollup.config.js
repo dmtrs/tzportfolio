@@ -1,6 +1,10 @@
 import resolve from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
 import json from 'rollup-plugin-json';
+
+import css from 'rollup-plugin-import-css';
+
+
 import { terser } from 'rollup-plugin-terser';
 
 // `npm run build` -> `production` is true
@@ -15,6 +19,7 @@ export default {
 		sourcemap: true
 	},
 	plugins: [
+                css(),
                 json({
                   include: 'src/**',
                 }),

@@ -3,6 +3,8 @@ import moment from 'moment';
 
 import { Cycle } from './schema/cycles.js';
 
+import 'carbon-web-components/es/components/loading/loading.js';
+
 let _observe_index = (host, value) => {
   console.log(host.index, host.cycle);
 };
@@ -23,9 +25,8 @@ define({
           })
         )
       }
-      ${store.pending(host.cycle) && `Loading...`}
+      ${store.pending(host.cycle) && html`Loading...`}
       ${store.error(host.cycle) && `Something went wrong...`}
-
       ${store.ready(host.cycle) && html`
         end ${moment(host.cycle.endTime).fromNow()} ${host.cycle.lastLevel}`
       }
