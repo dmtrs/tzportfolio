@@ -30,15 +30,12 @@ define({
   render: ({})=> html`
     <div class="main-container bx--grid">
       <div class="bx--row">
-        <div class="bx--col-lg-8">
-          <div class="bx-row bx--mt-5">
-            <tzp-account></tzp-account>
-          </div>
-          <div class="bx-row bx--mt-5">
-            <tzp-account></tzp-account>
+        <div class="bx--col-lg-10">
+          <div class="bx-row bx--mt-5 bx--aspect-ratio bx--aspect-ratio--16x9">
+            <tzp-account class="bx--col"></tzp-account>
           </div>
         </div>
-        <div class="bx--col-lg-4 bx--grid bx--grid--narrow">
+        <div class="bx--col-lg-2 bx--grid bx--grid--narrow">
           <div class="bx--row bx--aspect-ratio bx--aspect-ratio--16x9">
             <tzp-fx class="bx--aspect-ratio--object bx--col"></tzp-fx>
           </div>

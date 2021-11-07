@@ -11,9 +11,7 @@ define({
   render: (host) => {
     const width = host.offsetParent.clientWidth;
     const height = host.offsetParent.clientHeight;
-    return html`
-      <div>
-      ${Plot.plot({
+    const graph = Plot.plot({
         width,
         height,
         x: {
@@ -28,8 +26,9 @@ define({
         marks: [
           Plot.line(JSON.parse(host.data).map(i=>[i[host.x], i[host.y]])),
         ]
-      })}
-      </div>
-    `;
+    });
+    graph.setAttribute('width', '100%');
+    graph.setAttribute('height', '100%');
+    return html`${graph}`;
   }
 });
